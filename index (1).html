@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rangkuman Cloud Computing</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,0.08);
+      --panel-solid: #111a2e;
+      --text: #eef3ff;
+      --muted: #b8c4e0;
+      --accent: #3dd9c5;
+      --accent-2: #6aa9ff;
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 20px 45px rgba(0,0,0,0.28);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(61,217,197,0.14), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(106,169,255,0.16), transparent 24%),
+        linear-gradient(180deg, #08101d 0%, #0b1220 55%, #0e1730 100%);
+      line-height: 1.65;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 16, 29, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      font-size: 1rem;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 88px 0 54px;
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+      padding: 34px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(61,217,197,0.12);
+      color: var(--accent);
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 { margin: 0 0 12px; line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+    h3 { font-size: 1.08rem; }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 62ch;
+      margin-bottom: 22px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button-primary {
+      background: linear-gradient(135deg, var(--accent), #67f3e2);
+      color: #042028;
+    }
+    .button-secondary {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .mini-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card p, .card li { color: var(--muted); }
+    .card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: inline-grid;
+      place-items: center;
+      font-weight: 800;
+      background: rgba(61,217,197,0.14);
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(106,169,255,0.14);
+      color: #cfe1ff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      border-left: 4px solid var(--accent);
+      padding: 18px 18px 18px 20px;
+      background: rgba(61,217,197,0.08);
+      border-radius: 16px;
+      color: var(--text);
+    }
+
+    .footer {
+      padding: 26px 0 54px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero-card,
+      .grid-2,
+      .grid-3,
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-card,
+      .card,
+      .mini-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">Rangkuman <span>Cloud Computing</span></div>
+      <nav class="nav-links">
+        <a href="#pengertian">Pengertian</a>
+        <a href="#karakteristik">Karakteristik</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#deployment">Deployment</a>
+        <a href="#manfaat">Manfaat</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-card">
+        <div>
+          <div class="eyebrow">Materi Kuliah • Cloud Computing</div>
+          <h1>Rangkuman Cloud Computing</h1>
+          <p class="lead">
+            Website ini merangkum konsep dasar cloud computing, mulai dari pengertian,
+            karakteristik utama, model layanan, deployment model, hingga manfaat dan tantangannya.
+            Dibuat dengan tampilan sederhana, rapi, dan mudah dipahami.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#pengertian">Mulai Baca</a>
+            <a class="button button-secondary" href="#kesimpulan">Lihat Kesimpulan</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="mini-card">
+            <strong>5</strong>
+            Karakteristik utama cloud computing menurut materi.
+          </div>
+          <div class="mini-card">
+            <strong>3</strong>
+            Model layanan utama: SaaS, PaaS, dan IaaS.
+          </div>
+          <div class="mini-card">
+            <strong>4</strong>
+            Deployment model: public, private, hybrid, dan community cloud.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pengertian">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pengertian Cloud Computing</h2>
+            <p>Cloud computing adalah model layanan komputasi yang memungkinkan pengguna mengakses sumber daya seperti server, penyimpanan, jaringan, dan aplikasi melalui internet.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Apa itu komputasi awan?</h3>
+            <p>
+              Dalam materi, cloud computing dijelaskan sebagai perkembangan komputasi terdistribusi
+              yang memindahkan berbagai layanan ke internet sehingga pengguna tidak lagi bergantung
+              penuh pada perangkat lokal.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Kenapa penting?</h3>
+            <p>
+              Cloud memudahkan individu maupun organisasi untuk menggunakan layanan komputasi
+              secara lebih fleksibel. Pengguna bisa mengakses layanan dari berbagai tempat selama
+              tersedia koneksi jaringan.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="karakteristik">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>5 Karakteristik Utama</h2>
+            <p>Lima karakteristik ini membuat sebuah layanan layak disebut cloud computing.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="number">1</div>
+            <h3>Resource Pooling</h3>
+            <p>Sumber daya komputasi dikumpulkan oleh penyedia layanan untuk melayani banyak pengguna dengan model multi-tenant.</p>
+          </article>
+          <article class="card">
+            <div class="number">2</div>
+            <h3>Broad Network Access</h3>
+            <p>Layanan bisa diakses lewat jaringan dari banyak perangkat seperti laptop, tablet, dan smartphone.</p>
+          </article>
+          <article class="card">
+            <div class="number">3</div>
+            <h3>Measured Service</h3>
+            <p>Pemakaian layanan dapat dipantau dan diukur secara otomatis, misalnya bandwidth, storage, dan jumlah pengguna aktif.</p>
+          </article>
+          <article class="card">
+            <div class="number">4</div>
+            <h3>Rapid Elasticity</h3>
+            <p>Kapasitas layanan bisa dinaikkan atau diturunkan dengan cepat sesuai kebutuhan pengguna.</p>
+          </article>
+          <article class="card">
+            <div class="number">5</div>
+            <h3>Self Service</h3>
+            <p>Pengguna dapat melakukan konfigurasi layanan sendiri tanpa harus menunggu bantuan manual dari penyedia.</p>
+          </article>
+          <article class="card">
+            <h3>Inti utamanya</h3>
+            <p>Cloud menawarkan layanan yang cepat, fleksibel, terukur, dan mudah diakses, sehingga mendukung efisiensi operasional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="layanan">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Model Layanan Cloud</h2>
+            <p>Terdapat tiga model layanan utama yang umum digunakan dalam cloud computing.</p>
+          </div>
+        </div>
+
+        <div class="comparison">
+          <article class="card">
+            <span class="tag">SaaS</span>
+            <h3>Software as a Service</h3>
+            <p>
+              Pengguna langsung memakai aplikasi yang sudah disediakan provider.
+              Contohnya email, dokumen online, dan aplikasi bisnis berbasis web.
+            </p>
+            <ul>
+              <li>Tidak perlu instalasi rumit</li>
+              <li>Mudah dipakai oleh pengguna akhir</li>
+              <li>Pembayaran biasanya berbasis langganan</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="tag">PaaS</span>
+            <h3>Platform as a Service</h3>
+            <p>
+              Pengguna menyewa platform untuk menjalankan aplikasi tanpa perlu mengurus infrastruktur
+              secara detail. Cocok untuk pengembang aplikasi.
+            </p>
+            <ul>
+              <li>Fokus ke pengembangan aplikasi</li>
+              <li>Tidak perlu pusing mengelola server dasar</li>
+              <li>Contoh modern: layanan deploy web seperti Render, Railway, atau Vercel</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="tag">IaaS</span>
+            <h3>Infrastructure as a Service</h3>
+            <p>
+              Pengguna menyewa infrastruktur IT seperti CPU, storage, memory, dan jaringan.
+              Kontrol lebih besar, tetapi pengelolaannya juga lebih banyak.
+            </p>
+            <ul>
+              <li>Lebih fleksibel untuk konfigurasi</li>
+              <li>Cocok untuk kebutuhan infrastruktur khusus</li>
+              <li>Skala resource bisa diubah sesuai kebutuhan</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="deployment">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Deployment Model</h2>
+            <p>Selain model layanan, cloud computing juga dibagi berdasarkan cara penerapannya.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Public Cloud</h3>
+            <p>Layanan disediakan untuk masyarakat umum. Mudah diakses dan tidak membutuhkan investasi infrastruktur sendiri.</p>
+          </article>
+          <article class="card">
+            <h3>Private Cloud</h3>
+            <p>Layanan cloud dibangun untuk kebutuhan internal organisasi. Kontrol lebih besar, tetapi biaya dan pengelolaan juga lebih tinggi.</p>
+          </article>
+          <article class="card">
+            <h3>Hybrid Cloud</h3>
+            <p>Gabungan public cloud dan private cloud agar organisasi bisa menyesuaikan kebutuhan fleksibilitas dan keamanan.</p>
+          </article>
+          <article class="card">
+            <h3>Community Cloud</h3>
+            <p>Dibangun untuk komunitas atau organisasi dengan kepentingan yang sama, misalnya terkait aturan, compliance, atau keamanan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="manfaat">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Manfaat dan Tantangan</h2>
+            <p>Cloud computing memberi banyak keuntungan, tetapi tetap memiliki beberapa tantangan yang perlu diperhatikan.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Manfaat</h3>
+            <ul>
+              <li>Skalabilitas dan fleksibilitas tinggi</li>
+              <li>Efisiensi biaya dengan sistem pay-as-you-go</li>
+              <li>Akses dari mana saja melalui internet</li>
+              <li>Mendukung kolaborasi dan mobilitas kerja</li>
+              <li>Keamanan serta backup biasanya sudah disediakan provider</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Tantangan</h3>
+            <ul>
+              <li>Bergantung pada koneksi internet yang stabil</li>
+              <li>Ada risiko keamanan dan privasi data</li>
+              <li>Kontrol terhadap infrastruktur lebih terbatas dibanding sistem lokal</li>
+              <li>Integrasi dengan aplikasi lama bisa menjadi tantangan</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="highlight" style="margin-top: 18px;">
+          Cloud computing bukan hanya soal memindahkan data ke internet, tetapi tentang memanfaatkan layanan komputasi secara efisien, fleksibel, dan sesuai kebutuhan pengguna.
+        </div>
+      </div>
+    </section>
+
+    <section id="tren">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Tren Singkat Cloud Computing</h2>
+            <p>Materi juga menyoroti beberapa perkembangan terbaru dalam penggunaan cloud.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Hybrid & Multi-Cloud</h3>
+            <p>Organisasi mulai memakai lebih dari satu layanan cloud untuk fleksibilitas dan mitigasi risiko.</p>
+          </article>
+          <article class="card">
+            <h3>AI & Machine Learning</h3>
+            <p>Cloud semakin mendukung pemrosesan AI dan machine learning tanpa harus membangun infrastruktur sendiri dari nol.</p>
+          </article>
+          <article class="card">
+            <h3>Cloud Native</h3>
+            <p>Penggunaan container dan aplikasi cloud-native mempermudah deployment serta scaling aplikasi modern.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kesimpulan">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Kesimpulan</h2>
+            <p>Cloud computing menjadi fondasi penting dalam dunia teknologi modern karena mampu menyediakan layanan komputasi yang fleksibel, efisien, dan mudah diakses.</p>
+          </div>
+        </div>
+
+        <article class="card">
+          <p>
+            Dari materi ini dapat dipahami bahwa cloud computing memiliki karakteristik khas,
+            model layanan yang berbeda, serta deployment model yang bisa disesuaikan dengan kebutuhan.
+            Dengan memahami konsep-konsep ini, kita bisa lebih mudah menentukan layanan cloud yang tepat,
+            termasuk saat melakukan eksperimen deployment website pada platform gratis seperti Render,
+            Railway, atau Vercel.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Disusun sebagai website rangkuman materi kuliah Cloud Computing.
+    </div>
+  </footer>
+</body>
+</html>
