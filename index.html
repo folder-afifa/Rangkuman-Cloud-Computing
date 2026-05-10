@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rangkuman Cloud Computing</title>
+  <title>Rangkuman Cloud Computing & FinOps</title>
   <style>
     :root {
       --bg: #0b1220;
@@ -287,13 +287,14 @@
 <body>
   <header class="navbar">
     <div class="container nav-inner">
-      <div class="brand">Rangkuman <span>Cloud Computing</span></div>
+      <div class="brand">Rangkuman <span>Cloud & FinOps</span></div>
       <nav class="nav-links">
         <a href="#pengertian">Pengertian</a>
         <a href="#karakteristik">Karakteristik</a>
         <a href="#layanan">Layanan</a>
         <a href="#deployment">Deployment</a>
         <a href="#manfaat">Manfaat</a>
+        <a href="#finops">FinOps</a>
       </nav>
     </div>
   </header>
@@ -302,12 +303,12 @@
     <section class="hero">
       <div class="container hero-card">
         <div>
-          <div class="eyebrow">Materi Kuliah • Cloud Computing</div>
-          <h1>Rangkuman Cloud Computing</h1>
+          <div class="eyebrow">Materi Kuliah • Cloud Computing & FinOps</div>
+          <h1>Rangkuman Cloud Computing & FinOps</h1>
           <p class="lead">
-            Website ini merangkum konsep dasar cloud computing, mulai dari pengertian,
-            karakteristik utama, model layanan, deployment model, hingga manfaat dan tantangannya.
-            Dibuat dengan tampilan sederhana, rapi, dan mudah dipahami.
+            Website ini merangkum konsep cloud computing dan pengantar FinOps, mulai dari pengertian,
+            karakteristik, model layanan, deployment model, manfaat, tantangan, tren cloud, hingga cara
+            mengelola biaya cloud agar tetap efisien dan bernilai bagi bisnis.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#pengertian">Mulai Baca</a>
@@ -317,16 +318,16 @@
 
         <div class="hero-side">
           <div class="mini-card">
-            <strong>5</strong>
-            Karakteristik utama cloud computing menurut materi.
+            <strong>5 Karakteristik</strong>
+            Resource pooling, broad network access, measured service, rapid elasticity, dan self service.
           </div>
           <div class="mini-card">
-            <strong>3</strong>
-            Model layanan utama: SaaS, PaaS, dan IaaS.
+            <strong>3 Model Layanan</strong>
+            SaaS, PaaS, dan IaaS sebagai bentuk layanan utama cloud computing.
           </div>
           <div class="mini-card">
-            <strong>4</strong>
-            Deployment model: public, private, hybrid, dan community cloud.
+            <strong>4 Deployment Model</strong>
+            Public, private, hybrid, dan community cloud sebagai cara penerapan cloud.
           </div>
         </div>
       </div>
@@ -555,6 +556,163 @@
       </div>
     </section>
 
+
+    <section id="finops">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pengantar FinOps</h2>
+            <p>FinOps atau Financial Operations adalah praktik untuk mengelola biaya cloud dengan melibatkan tim teknologi, keuangan, dan bisnis.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Evolusi Biaya Komputasi</h3>
+            <p>
+              Pada model tradisional, perusahaan biasanya mengeluarkan biaya besar di awal untuk membeli perangkat keras fisik atau disebut CapEx. Pada model cloud, biaya berubah menjadi OpEx karena pembayaran dilakukan berdasarkan pemakaian atau pay-as-you-go.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Definisi FinOps</h3>
+            <p>
+              FinOps bukan hanya tentang memotong biaya, tetapi tentang memaksimalkan nilai bisnis dari setiap biaya yang dikeluarkan untuk cloud. Praktik ini menyatukan tim engineering, finance, product owner, dan executive agar penggunaan cloud lebih terkontrol.
+            </p>
+          </article>
+        </div>
+
+        <div class="highlight" style="margin-top: 18px;">
+          Masalah yang sering muncul pada cloud adalah pemborosan biaya, misalnya resource yang idle, terlalu besar, atau tidak lagi digunakan tetapi masih aktif dan tetap menimbulkan biaya.
+        </div>
+      </div>
+    </section>
+
+    <section id="framework-finops">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>3 Fase Framework FinOps</h2>
+            <p>Framework FinOps terdiri dari tiga fase utama, yaitu Inform, Optimize, dan Operate.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <span class="tag">Inform</span>
+            <h3>Memberi Visibilitas Biaya</h3>
+            <p>
+              Fase ini berfokus pada tagging, alokasi biaya, dan pelaporan yang akurat. Tujuannya agar organisasi tahu resource mana yang digunakan, siapa pemiliknya, dan berapa biaya yang dihasilkan.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Optimize</span>
+            <h3>Mengoptimalkan Pengeluaran</h3>
+            <p>
+              Fase ini mencari peluang penghematan, seperti right-sizing, memakai reserved instances, spot instances, dan menghentikan resource yang tidak digunakan.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Operate</span>
+            <h3>Menjadikan Efisiensi Kebiasaan</h3>
+            <p>
+              Fase ini mengintegrasikan efisiensi biaya ke operasional harian, termasuk penggunaan kebijakan, metrik performa, dan otomatisasi agar pengelolaan cloud lebih disiplin.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stakeholder-finops">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pemangku Kepentingan dalam FinOps</h2>
+            <p>FinOps membutuhkan kerja sama beberapa peran agar keputusan cloud tidak hanya teknis, tetapi juga sesuai anggaran dan tujuan bisnis.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Engineering</h3>
+            <p>Membangun dan mengelola infrastruktur cloud. Fokus FinOps-nya adalah efisiensi penggunaan resource dan right-sizing.</p>
+          </article>
+          <article class="card">
+            <h3>Finance</h3>
+            <p>Mengelola anggaran dan pelaporan. Fokusnya adalah prediksi biaya, kontrol pengeluaran, dan alokasi anggaran.</p>
+          </article>
+          <article class="card">
+            <h3>Product Owner</h3>
+            <p>Menghubungkan biaya cloud dengan fitur dan nilai produk. Fokusnya adalah analisis biaya per fitur atau layanan.</p>
+          </article>
+          <article class="card">
+            <h3>Executive</h3>
+            <p>Mengambil keputusan strategis organisasi. Fokusnya adalah ROI, nilai bisnis, dan pertumbuhan perusahaan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="operasi-finops">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Operasi Harian dan Pengukuran Nilai</h2>
+            <p>FinOps diterapkan melalui kontrol biaya harian dan pengukuran biaya berdasarkan hasil bisnis.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Day-to-Day Operations</h3>
+            <ul>
+              <li><strong>Automated governance:</strong> resource yang tidak dipakai dapat dihentikan otomatis di luar jam kerja.</li>
+              <li><strong>KPI & metrics:</strong> efisiensi biaya dijadikan ukuran performa tim engineering.</li>
+              <li><strong>Policy enforcement:</strong> dibuat aturan siapa saja yang boleh membuat server atau database berbiaya tinggi.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Unit Economics</h3>
+            <p>
+              FinOps tidak hanya bertanya “berapa total biayanya?”, tetapi juga “berapa biaya untuk satu transaksi bisnis?”. Contohnya adalah menghitung cost per transaction agar biaya cloud bisa dibandingkan dengan nilai yang dihasilkan.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="maturity-finops">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Maturity Model FinOps</h2>
+            <p>Tingkat kematangan FinOps menunjukkan sejauh mana organisasi mampu mengelola biaya cloud secara konsisten.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <span class="tag">Crawl</span>
+            <h3>Tahap Awal</h3>
+            <p>Organisasi mulai membuat visibilitas dasar dan tagging, tetapi banyak proses masih manual.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Walk</span>
+            <h3>Tahap Berkembang</h3>
+            <p>Kebijakan optimasi mulai dijalankan secara rutin dan kolaborasi antar tim mulai terbentuk.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Run</span>
+            <h3>Tahap Matang</h3>
+            <p>Otomasi sudah berjalan penuh dan biaya cloud dipahami sebagai nilai strategis bisnis secara real-time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="kesimpulan">
       <div class="container">
         <div class="section-head">
@@ -567,10 +725,10 @@
         <article class="card">
           <p>
             Dari materi ini dapat dipahami bahwa cloud computing memiliki karakteristik khas,
-            model layanan yang berbeda, serta deployment model yang bisa disesuaikan dengan kebutuhan.
-            Dengan memahami konsep-konsep ini, kita bisa lebih mudah menentukan layanan cloud yang tepat,
-            termasuk saat melakukan eksperimen deployment website pada platform gratis seperti Render,
-            Railway, atau Vercel.
+            model layanan yang berbeda, deployment model yang bisa disesuaikan dengan kebutuhan,
+            serta tantangan biaya yang perlu dikelola melalui FinOps. Dengan memahami cloud computing dan FinOps,
+            pengguna tidak hanya bisa melakukan deployment website ke platform cloud, tetapi juga memahami cara
+            menggunakan resource cloud secara efisien, terukur, dan bernilai bagi bisnis.
           </p>
         </article>
       </div>
@@ -579,7 +737,7 @@
 
   <footer class="footer">
     <div class="container">
-      Disusun sebagai website rangkuman materi kuliah Cloud Computing.
+      Disusun sebagai website rangkuman materi kuliah Cloud Computing & Introduction to FinOps.
     </div>
   </footer>
 </body>
